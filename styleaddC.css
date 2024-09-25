@@ -1,0 +1,79 @@
+/* General Styles */
+body {
+    background-color: black;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: left;
+    color: #FFD700; /* Gold color for the title */
+    width: 600px;
+}
+
+h1 {
+    font-size: 5em;
+    text-shadow: 2px 2px #ff0000; /* Red shadow */
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+.customer-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1.5em;
+    color: white;
+    flex-basis: 40%;
+}
+
+input[type="text"], input[type="tel"], input[type="email"] {
+    flex-basis: 55%;
+    padding: 10px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    border: none;
+    background-color: #D3D3D3;
+}
+
+/* Button Styles */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.btn {
+    background-color: red;
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #FF6347; 
+}
+
+.btn:active {
+    background-color: #ff4500; 
+}

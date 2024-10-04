@@ -13,7 +13,7 @@
             <div class="form-group">
                 <label for="customer-id">Customer ID</label>
                 <input type="text" id="customer-id" name="customer-id">
-                <button type="button" class="btn search-btn">Search</button>
+                <button type="button" class="btn search-btn" onclick="searchCustomer()">Search</button>
             </div>
             <hr>
             <div class="form-group">
@@ -38,10 +38,10 @@
             </div>
             <div class="button-container">
                 <a href="index.html"><button type="button" class="btn home-btn">Home Page</button></a>
-                <a href=""><button type="submit" class="btn">Update </button></a>
+                <button type="button" onclick="updateCustomer()" class="btn">Update </button>
             </div>
         </form>
     </div>
-    <script src="addCus.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

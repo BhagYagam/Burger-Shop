@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Order Form</title>
+    <style>
+         button {
+            padding: 10px 20px;
+            background-color: #ef1a1a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #f47e1d;
+        }
+
+    </style>
+    <link rel="stylesheet" href="styleplaceO.css">
+</head>
+<body style="background-color: black;">
+
+    <div class="container">
+        <h1>Burger POS Order Form</h1>
+        
+        <form id="orderForm">
+            <div class="info-section">
+            
+            </div>
+
+            <div class="form-group">
+                <label for="searchitem">Item Search</label>
+                <input type="text" id="searchitem" name="serachitem">
+                <button type="button" onclick="searchItemForOrders()" class="btn search-btn">Search</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item ID</th>
+                        <th>Item Name</th>
+                        <th>Unit Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="item-id" id="cartItemId"></td>
+                        <td><input type="text" name="item-name" id="cartItemName"></td>
+                        <td><input type="text" name="item-unitprice" id="cartItemUnitPrice"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="button-section">
+                <label for="qtyToAdd">Qty To ADD</label>
+                <input type="text" id="qtyToAdd" name="QTY"><br>
+                <button type="button" onclick="addToCart()">Add Item to Cart</button>
+                <a href="checkoutTable.html"><button type="button" class="place-order">Confirm</button></a> 
+            </div>
+        </form>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

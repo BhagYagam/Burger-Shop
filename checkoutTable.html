@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000000;
+        }
+
+        .form-container {
+            width: 500px; /* Adjust the width as per your need */
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        input[type="text"], input[type="time"], input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dd0707;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f7dc10;
+            color: #000000;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #fff;
+        }
+
+        #totalAmount {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ef1a1a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #f47e1d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <label for="ordid">Order ID</label>
+        <input type="text" id="ordid" placeholder="Enter order id" required>
+
+        <label for="cusid">Customer ID</label>
+        <input type="text" id="cusid" placeholder="Enter your id" required>
+
+        <label for="pickupTime">Time of Pick-up:</label>
+        <input type="time" id="pickupTime" required>
+
+        <label for="date">Today's Date:</label>
+        <input type="date" id="date" required>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Item ID</th>
+                    <th>Item Name</th>
+                    <th>Item quantity</th>
+                    <th>Unit Price</th>
+                </tr>
+            </thead>
+            <tbody id="checkOutCart">
+
+            </tbody>
+        </table>
+
+        <label for="totalAmount">Total Amount</label>
+        <input type="text" name="totalAmount" id="totalAmount">
+
+        <a href="viewOrder.html"><button onclick="placeOrder()">Place Order</button></a>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

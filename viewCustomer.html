@@ -4,6 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Customer</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid rgb(248, 24, 24);
+            text-align: center;
+            padding: 8px;
+            color: #ffffff;
+        }
+
+        th {
+            background-color:rgb(255, 122, 13);
+            color: #000;
+        }
+
+        .category-header {
+            background-color: #fbf731;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            text-align: center;
+        } 
+    </style>
     <link rel="stylesheet" href="styleviewC.css">
 </head>
 <body>
@@ -13,7 +38,7 @@
             <div class="form-group">
                 <label for="customer-id">Customer ID</label>
                 <input type="text" id="customer-id" name="customer-id">
-                <button type="button" class="btn search-btn">Search</button>
+                <button type="button" onclick="searchCustomer()" class="btn search-btn">Search</button>
             </div>
             <hr>
             <div class="form-group">
@@ -40,8 +65,12 @@
                 <a href="index.html"><button type="button" class="btn home-btn">Home Page</button></a>
             </div>
         </form>
+        <table id="Cutomerview">  
+        </table>
     </div>
-    <script src="addCus.js"></script>
+
+   
+    <script src="app.js"></script>
 
 </body>
 </html>

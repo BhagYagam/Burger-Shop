@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Order</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input, .form-group button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group button {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #218838;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f5f5f5;
+        }
+
+        .button-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-section button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .button-section button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Update Order</h1>
+
+       
+            <div class="form-group">
+                <label for="customerId">Order ID</label>
+                <input type="text" id="customerId" placeholder="Enter Order ID" required>
+                <button type="button" id="searchOrderBtn">Search Order</button>
+            </div>
+
+            <div id="orderDetails" style="display: none;">
+                <h3>Order Details</h3>
+
+                <div class="form-group">
+                    <label for="name">Customer Name</label>
+                    <input type="text" id="name" placeholder="Enter Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pickupTime">Pick-up Time</label>
+                    <input type="time" id="pickupTime" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Pick-up Date</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <h3>Items Ordered</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" id="item1" placeholder="Item 1"></td>
+                            <td><input type="number" id="qty1" min="1" placeholder="Quantity"></td>
+                            <td><input type="text" id="price1" placeholder="Price"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" id="item2" placeholder="Item 2"></td>
+                            <td><input type="number" id="qty2" min="1" placeholder="Quantity"></td>
+                            <td><input type="text" id="price2" placeholder="Price"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" id="item3" placeholder="Item 3"></td>
+                            <td><input type="number" id="qty3" min="1" placeholder="Quantity"></td>
+                            <td><input type="text" id="price3" placeholder="Price"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="button-section">
+                    <button type="button" onclick="updateOrder()">Update Order</button>
+                </div>
+            </div>
+       
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

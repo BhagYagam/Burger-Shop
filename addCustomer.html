@@ -10,7 +10,6 @@
    <img src="" alt="">
     <div class="container">
         <h1>Add Customer</h1>
-        <form class="customer-form">
             <div class="form-group">
                 <label for="customer-id">Customer ID</label>
                 <input type="text" id="customer-id" name="customer-id">
@@ -36,12 +35,11 @@
                 <input type="email" id="email" name="email">
             </div>
             <div class="button-container">
-                <a href="index.html"><button type="button" class="btn">Home Page</button></a>
-                <a href=""><button type="submit" class="btn">Add </button></a>
+                <a href="index.html"><button type="button" class="btn">Home Page</button></a>   
+                <button type="button" class="btn" onclick="addCustomer()">Add</button>
                
             </div>
-        </form>
     </div>
-    <script src="addCus.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

@@ -27,40 +27,117 @@ function addCustomer() {
 
  }
 
-// function addCustomer() {
-//     const customerId = document.getElementById("customer-id").value;
-//     const firstName = document.getElementById("first-name").value;
-//     const lastName = document.getElementById("last-name").value;
-//     const phoneNumber = document.getElementById("phone-number").value;
-//     const address = document.getElementById("address").value;
-//     const email = document.getElementById("email").value;
-   
-//     if (!customerId || !firstName || !lastName || !phoneNumber || !address || !email) {
-//         alert("Please fill in all fields");
-//         return;
-//     }
+function searchCustomer() {
 
-//     const customer = {
-//         customerId1: customerId,
-//         firstName1: firstName,
-//         lastName1: lastName,
-//         phoneNumber1: phoneNumber,
-//         address1: address,
-//         email1: email
-//     };
+    
+    const customerId = document.getElementById("customer-id").value;
+    console.log(customerId);
+    
+    const customerData = JSON.parse(localStorage.getItem("customer"));
+    found = false;
+        console.log(customerData);
+        
+        for (let i = 0; i < customerData.length; i++) {
+          if (customerData[i].customerId1 === customerId) {            
+            document.getElementById("first-name").value = customerData[i].firstName1;
+            document.getElementById("last-name").value = customerData[i].lastName1;
+            document.getElementById("phone-number").value = customerData[i].phoneNumber1;
+            document.getElementById("address").value = customerData[i].address1;
+            document.getElementById("email").value = customerData[i].email1;
 
-//     let customers = JSON.parse(localStorage.getItem('customers')) || [];
-//     customers.push(customer);
-//     localStorage.setItem('items', JSON.stringify(customers));
+            found = true;
+            break;
+          } else {
+            
+              console.log(false);
+              
+              found = false;
+          }
+        }
+    if (found) {
+        alert("Customer Found");
+    } else {
+        alert("Customer not Found");
+    }
+}
 
-//     console.log("Added Item:", customer);
+//update customer
+let searchIndex1 = null; 
 
-//     console.log("All Items in localStorage:", customers);
+function updateCustomer() {
+    let customers = JSON.parse(localStorage.getItem('customer')) || [];
 
-//     //document.querySelector('.customer-form').reset();
+    searchIndex1 = document.getElementById('customer-id').value;
+    let firstName = document.getElementById('first-name').value;
+    let lastName = document.getElementById('last-name').value;
+    let phoneNumber = document.getElementById('phone-number').value;
+    let address = document.getElementById('address').value;
+    let email = document.getElementById('email').value;
 
-//     alert('Customer added successfully!');
-// }
+    if (searchIndex1 === null) {
+        alert("Please search for a Customer before updating!");
+        return;
+    }
+    for (let i = 0; i < customers.length; i++) {
+        if(customers[i].customerId1===searchIndex1){
+            searchIndex1 = i;
+        }
+    }
+    
+    customers[searchIndex1].firstName1 = firstName;
+    customers[searchIndex1].lastName1 = lastName;
+    customers[searchIndex1].phoneNumber1 = phoneNumber;
+    customers[searchIndex1].address1 = address;
+    customers[searchIndex1].email1 = email;
+
+    localStorage.setItem('customer', JSON.stringify(customers));
+    alert("ustomer Updated Successfully!");
+    searchIndex1 = null;
+    firstName = null;
+    lastName = null;
+    phoneNumber = null;
+    address = null;
+    email = null;
+    
+}
+
+//delete customer
+
+function deleteCustomer(){
+    
+    let customerId = document.getElementById('customer-id').value.trim();
+
+    if (!customerId) {
+        alert('Please enter a customer ID');
+        return;
+    }
+    let index = -1;
+    let customers = JSON.parse(localStorage.getItem('customer')) || [];
+    console.log("Customers in localStorage:", customers);
+    
+    for (let i = 0; i < customers.length; i++) {
+        if(customers[i].customerId1===customerId){
+            index = i;
+            console.log(customerId);
+            break;
+        }
+        index = -1;
+    }
+
+    if (index === -1) {
+        alert('Customer deleted successfully!');
+        return;
+    }
+
+    customers.splice(index, 1);
+
+    localStorage.setItem('customer', JSON.stringify(customers));
+
+    document.querySelector('.customer-form').reset();
+
+    alert('Customer deleted successfully!');
+
+}
 
 
 function init() {
@@ -221,122 +298,6 @@ function placeOrder() {
 
   cart=[];
   localStorage.setItem("cart",JSON.stringify(cart));
-}
-
-function searchCustomer() {
-
-    
-    const customerId = document.getElementById("customer-id").value;
-    console.log(customerId);
-    
-    const customerData = JSON.parse(localStorage.getItem("customer"));
-    found = false;
-        console.log(customerData);
-        
-        for (let i = 0; i < customerData.length; i++) {
-          if (customerData[i].customerId1 === customerId) {            
-            document.getElementById("first-name").value = customerData[i].firstName1;
-            document.getElementById("last-name").value = customerData[i].lastName1;
-            document.getElementById("phone-number").value = customerData[i].phoneNumber1;
-            document.getElementById("address").value = customerData[i].address1;
-            document.getElementById("email").value = customerData[i].email1;
-
-            found = true;
-            break;
-          } else {
-            
-              console.log(false);
-              
-              found = false;
-          }
-        }
-    if (found) {
-        alert("Customer Found");
-    } else {
-        alert("Customer not Found");
-    }
-}
-
-
-//update customer
-let searchIndex1 = null; 
-
-function updateCustomer() {
-    let customers = JSON.parse(localStorage.getItem('customer')) || [];
-
-    searchIndex1 = document.getElementById('customer-id').value;
-    let firstName = document.getElementById('first-name').value;
-    let lastName = document.getElementById('last-name').value;
-    let phoneNumber = document.getElementById('phone-number').value;
-    let address = document.getElementById('address').value;
-    let email = document.getElementById('email').value;
-
-    if (searchIndex1 === null) {
-        alert("Please search for a Customer before updating!");
-        return;
-    }
-    for (let i = 0; i < customers.length; i++) {
-        if(customers[i].customerId1===searchIndex1){
-            searchIndex1 = i;
-        }
-    }
-    
-    customers[searchIndex1].firstName1 = firstName;
-    customers[searchIndex1].lastName1 = lastName;
-    customers[searchIndex1].phoneNumber1 = phoneNumber;
-    customers[searchIndex1].address1 = address;
-    customers[searchIndex1].email1 = email;
-
-    localStorage.setItem('customer', JSON.stringify(customers));
-    alert("ustomer Updated Successfully!");
-    searchIndex1 = null;
-    firstName = null;
-    lastName = null;
-    phoneNumber = null;
-    address = null;
-    email = null;
-    
-}
-
-
-
-
-//delete customer
-
-function deleteCustomer(){
-    
-    let customerId = document.getElementById('customer-id').value.trim();
-
-    if (!customerId) {
-        alert('Please enter a customer ID');
-        return;
-    }
-    let index = -1;
-    let customers = JSON.parse(localStorage.getItem('customer')) || [];
-    console.log("Customers in localStorage:", customers);
-    
-    for (let i = 0; i < customers.length; i++) {
-        if(customers[i].customerId1===customerId){
-            index = i;
-            console.log(customerId);
-            break;
-        }
-        index = -1;
-    }
-
-    if (index === -1) {
-        alert('Customer not found for deletion');
-        return;
-    }
-
-    customers.splice(index, 1);
-
-    localStorage.setItem('customer', JSON.stringify(customers));
-
-    document.querySelector('.customer-form').reset();
-
-    alert('Customer deleted successfully!');
-
 }
 
 
